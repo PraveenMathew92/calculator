@@ -1,8 +1,9 @@
 import Big from "big.js";
 
 export default function operate(numberOne, numberTwo, operation) {
-  const one = Big(numberOne || "0");
-  const two = Big(numberTwo || (operation === "÷" || operation === 'x' ? "1": "0")); //If dividing or multiplying, then 1 maintains current value in cases of null
+  const one = Big(numberOne || "0");;
+  const two = operation === "x^y" ? (parseInt(numberTwo) || 0) :
+              Big(numberTwo || (operation === "÷" || operation === 'x' ? "1": "0")); //If dividing or multiplying, then 1 maintains current value in cases of null
   if (operation === "+") {
     return one.plus(two).toString();
   }
@@ -19,6 +20,9 @@ export default function operate(numberOne, numberTwo, operation) {
     } else {
       return one.div(two).toString();
     }
+  }
+  if (operation === "x^y") {
+    return one.pow(two).toString();
   }
   throw Error(`Unknown operation '${operation}'`);
 }
