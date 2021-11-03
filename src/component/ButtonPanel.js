@@ -1,4 +1,5 @@
 import Button from "./Button";
+import ButtonContainer from "../containers/Button";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -17,7 +18,7 @@ export default class ButtonPanel extends React.Component {
     return (
       <div className="component-button-panel">
         <div>
-          <Button name="AC" clickHandler={this.handleClick} />
+          <ButtonContainer name="AC" clickHandler={this.handleClick} />
           <Button name="+/-" clickHandler={this.handleClick} />
           <Button name="%" clickHandler={this.handleClick} />
           <Button name="÷" clickHandler={this.handleClick} orange />

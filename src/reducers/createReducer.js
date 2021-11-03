@@ -1,4 +1,4 @@
-import { actionHandlers } from './../constants/ActionHandlers';
+import { actionHandlers } from '../constants/ActionHandlers.js';
 
 export const createReducer = (initialState = {}, handlers = actionHandlers) => (
 	 (state = initialState, action) => (
